@@ -10,7 +10,8 @@ using System.Collections;
 public class CustomRequest : MonoBehaviour
 {
     public string url;
-    
+    public SensorManager sensorManager;
+
     void Start()
     {
         // A non-existing page.
@@ -43,6 +44,7 @@ public class CustomRequest : MonoBehaviour
                     //Debug.Log("Count: + " + pokeInfo.count);
                     SensorInfo sensorInfo = JsonUtility.FromJson<SensorInfo>(jsonString);
                     Debug.Log("Count: + " + sensorInfo.sensores.Count);
+                    sensorManager.SetupSensors(sensorInfo);
                     break;
             }
         }
